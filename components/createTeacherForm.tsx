@@ -40,27 +40,60 @@ export default function CreateTeacherForm() {
     console.log(values)
   }
 
-   return (
+   
+  return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {/* Name Field */}
         <FormField
           control={form.control}
-          name="username"
+          name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel htmlFor="name">Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input id="name" placeholder="Enter name" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>This is the name of the teacher.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+
+        {/* Code Field */}
+        <FormField
+          control={form.control}
+          name="code"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel htmlFor="code">Code</FormLabel>
+              <FormControl>
+                <Input id="code" placeholder="Enter code" {...field} />
+              </FormControl>
+              <FormDescription>This is the code of the teacher.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Address Field */}
+        <FormField
+          control={form.control}
+          name="address"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel htmlFor="address">Address</FormLabel>
+              <FormControl>
+                <Input id="address" placeholder="Enter address" {...field} />
+              </FormControl>
+              <FormDescription>This is the address of the teacher.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <Button type="submit">Submit</Button>
       </form>
     </Form>
-  )
+  );
 }

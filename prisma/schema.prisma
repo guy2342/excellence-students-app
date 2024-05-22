@@ -16,44 +16,33 @@ datasource db {
 model Student {
   id       String @id @map("_id")
   lastName String
-  gender   Gender
-  school   School @relation(fields: [schoolId], references: [id])
   grade    String
   class    String
   schoolId String
 }
 
 model Teacher {
-  id                   String    @id @map("_id")
-  firstName            String
-  lastName             String
-  email                String
-  phone                String
-  schoolAssocation     School    @relation(fields: [schoolId], references: [id])
-  subjectsInTheProgram Subject[]
-  username             String?
-  password             String?
-  isCoordinator        Boolean   @default(false)
-  schoolId             String
+  id        String  @id @map("_id")
+  firstName String
+  lastName  String
+  email     String
+  phone     String
+  username  String?
+  password  String?
 }
 
 model School {
-  id      String    @id @map("_id")
-  name    String
-  code    String
-  address String
-  Teacher Teacher[]
-  Student Student[]
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String   @unique
+  address Address? // Change to Address type with a question mark to indicate at most one address
+  phone   String?
 }
 
-model Subject {
-  id        String   @id @map("_id")
-  name      String
-  Teacher   Teacher? @relation(fields: [teacherId], references: [id])
-  teacherId String?
-}
-
-enum Gender {
-  MALE
-  FEMALE
+model Address {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  city     String
+  street   String
+  number   Int
+  schoolId String? @unique @db.ObjectId
+  school   School? @relation(fields: [schoolId], references: [id])
 }

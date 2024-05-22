@@ -1,6 +1,6 @@
 import React from "react";
 import ExcellenceLogo from "./logo";
-import { ModeToggle } from "./theme-toggle";
+import { ModeToggle } from "./themeToggle";
 import { UserButton } from "@clerk/nextjs";
 import Search from "./search";
 

@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" dir="rtl">
+      <html lang="he-IL" dir="rtl">
         <body>
           <ThemeProvider
             attribute="class"

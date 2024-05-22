@@ -1,4 +1,5 @@
-import CreateTeacherForm from "@/components/create-teacher-form";
+import CreateSchoolForm from "@/components/createSchoolForm";
+import CreateTeacherForm from "@/components/createTeacherForm";
 
 export default async function SchoolsPage() {
   return (
@@ -8,7 +9,7 @@ export default async function SchoolsPage() {
       </div>
       {/* Cards  */}
       {/* Table  */}
-      <CreateTeacherForm />
+      <CreateSchoolForm/>
     </div>
   );
 }
