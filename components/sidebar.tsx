@@ -3,7 +3,6 @@ import { User, Settings, File, Home, School } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import ExcellenceLogo from "./logo";
 import { usePathname } from "next/navigation";
 
 interface SidebarProps {}
@@ -18,44 +17,33 @@ const sidebarLinks: SidebarLinkItem[] = [
   {
     label: "ראשי",
     href: "/",
-    icon: <Home height={32} width={32} />,
-  },
-  {
-    label: "בתי ספר",
-    href: "/schools",
-    icon: <School height={32} width={32} />,
+    icon: <Home height={20} width={20} />,
   },
   {
     label: "רכזים",
     href: "/coordinators",
-    icon: <User height={32} width={32} />,
+    icon: <User height={20} width={20} />,
   },
-  { label: "מורים", href: "/teachers", icon: <User height={32} width={32} /> },
+  { label: "מורים", href: "/teachers", icon: <User height={20} width={20} /> },
   {
     label: "תלמידים",
     href: "/students",
-    icon: <User height={32} width={32} />,
+    icon: <User height={20} width={20} />,
   },
-  { label: "דוחות", href: "/reports", icon: <File height={32} width={32} /> },
+  { label: "דוחות", href: "/reports", icon: <File height={20} width={20} /> },
   {
     label: "סגירת שנה",
     href: "/year-closing",
-    icon: <File height={32} width={32} />,
+    icon: <File height={20} width={20} />,
   },
-  {
-    label: "הגדרות",
-    href: "/settings",
-    icon: <Settings height={32} width={32} />,
-  },
+  
 ];
 
 export default function Sidebar({}: SidebarProps) {
   const path = usePathname();
   return (
     <aside className="hidden md:flex flex-col h-full w-72 shadow-md border-l-2-2">
-      <div className="text-center py-5 border-b-2 w-[90%] mx-auto">
-        <ExcellenceLogo />
-      </div>
+      
       <div className="h-full flex flex-col px-4 py-2 justify-start gap-2">
         {sidebarLinks.map((link) => {
           return (

@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="he-IL" dir="rtl">
+      <html lang="he-IL" dir="rtl" suppressHydrationWarning>
         <body>
           <ThemeProvider
             attribute="class"
@@ -30,11 +30,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className="flex w-screen h-screen">
-              <Sidebar />
-              <MobileNav />
-              <div className="flex flex-col flex-1">
+            <main className="flex flex-col w-screen h-screen bg-slate-50">
                 <Header/>
+              <div className="flex flex-col flex-1">
+              <Sidebar />
                 {children}
                 </div>
             </main>

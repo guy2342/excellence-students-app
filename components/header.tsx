@@ -1,16 +1,20 @@
-import React from "react";
-import ExcellenceLogo from "./logo";
-import { ModeToggle } from "./themeToggle";
 import { UserButton } from "@clerk/nextjs";
+import Image from "next/image";
+
 import Search from "./search";
+import { ModeToggle } from "./theme-toggle";
+import { Brain } from "lucide-react";
 
 export default function Header() {
   return (
-    <div className="flex items-center w-full h-20 shadow-sm">
+    <div className="flex justify-between items-center space-x-4 w-full h-20 shadow-sm">
+      <div className="flex gap-2 px-4">
+        <h1>מערכת מצויינות</h1>
+        <Brain />
+      </div>
       <Search />
-      <div className="flex flex-row space-x-4 px-12 gap-4">
+      <div className="flex flex-row gap-4">
         <ModeToggle />
-        <UserButton />
       </div>
     </div>
   );
