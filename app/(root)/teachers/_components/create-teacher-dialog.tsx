@@ -14,7 +14,7 @@ export  function CreateTeacherDialog() {
       <DialogTrigger asChild>
         <Button variant={"default"}>הוסף מורה חדש</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="px-8 py-4">
         <CreateTeacherForm setOpen={setOpen} />
       </DialogContent>
     </Dialog>

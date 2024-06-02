@@ -36,34 +36,29 @@ const sidebarLinks: SidebarLinkItem[] = [
     href: "/year-closing",
     icon: <File height={20} width={20} />,
   },
-  
 ];
 
 export default function Sidebar({}: SidebarProps) {
   const path = usePathname();
   return (
-    <aside className="hidden md:flex flex-col h-full w-72 shadow-md border-l-2-2">
-      
+    <aside className="hidden md:flex flex-col h-full w-72 shadow-md border-l">
       <div className="h-full flex flex-col px-4 py-2 justify-start gap-2">
         {sidebarLinks.map((link) => {
           return (
-              <Link
-              key={link.href}
-                href={link.href}
-                className={cn("h-10", {
-                  "justify-self-end": link.label === "הגדרות",
-                })}
+            <Link key={link.href} href={link.href}>
+              <div
+                className={cn(
+                  "flex gap-4 items-center space-x-2 rounded px-2 py-2 text-lg text-slate-500 hover:bg-slate-200",
+
+                  { "bg-slate-300 text-slate-900": link.href === path }
+                )}
               >
-                <div
-                  className={cn(
-                    "flex gap-4 items-center space-x-2 rounded px-2 py-2 text-lg hover:bg-secondary",
-                    { "bg-secondary font-bold": link.href === path }
-                  )}
-                >
+                <div className="flex justify-center items-center gap-2">
                   {link.icon}
-                  <div>{link.label}</div>
+                  {link.label}
                 </div>
-              </Link>
+              </div>
+            </Link>
           );
         })}
       </div>
