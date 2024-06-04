@@ -1,71 +1,45 @@
-import {
-  ArrowDownIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-  CheckCircledIcon,
-  CircleIcon,
-  CrossCircledIcon,
-  QuestionMarkCircledIcon,
-  StopwatchIcon,
-} from "@radix-ui/react-icons"
 
-export const labels = [
+export const programProfessions = [
   {
-    value: "bug",
-    label: "Bug",
+    value: "math",
+    label: "מתמטיקה",
   },
   {
-    value: "feature",
-    label: "Feature",
+    value: "physics",
+    label: "פיזיקה",
   },
   {
-    value: "documentation",
-    label: "Documentation",
+    value: "computerScience",
+    label: "מדע המחשב",
   },
-]
+];
 
-export const statuses = [
+export const schools = [
   {
-    value: "backlog",
-    label: "Backlog",
-    icon: QuestionMarkCircledIcon,
+    value: "hugim",
+    label: "חוגים",
   },
   {
-    value: "todo",
-    label: "Todo",
-    icon: CircleIcon,
+    value: "ironiA",
+    label: "עירוני א",
   },
   {
-    value: "in progress",
-    label: "In Progress",
-    icon: StopwatchIcon,
+    value: "ironiG",
+    label: "עירוני ג",
   },
   {
-    value: "done",
-    label: "Done",
-    icon: CheckCircledIcon,
+    value: "ironiH",
+    label: "עירוני ה",
   },
-  {
-    value: "canceled",
-    label: "Canceled",
-    icon: CrossCircledIcon,
-  },
-]
+];
 
-export const priorities = [
+export const employees = [
   {
-    label: "Low",
-    value: "low",
-    icon: ArrowDownIcon,
+    label: "עירייה",
+    value: "municipality",
   },
   {
-    label: "Medium",
-    value: "medium",
-    icon: ArrowRightIcon,
+    label: "נווה דוד",
+    value: "neveDavid",
   },
-  {
-    label: "High",
-    value: "high",
-    icon: ArrowUpIcon,
-  },
-]
+];

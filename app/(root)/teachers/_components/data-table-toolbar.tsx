@@ -6,7 +6,7 @@ import { Table } from "@tanstack/react-table"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-import { priorities, statuses } from "../data/data"
+import {employees, programProfessions, schools } from "../data/data"
 import { DataTableFacetedFilter } from "./data-table-faceted-filter"
 
 interface DataTableToolbarProps<TData> {
@@ -23,24 +23,34 @@ export function DataTableToolbar<TData>({
       <div className="flex flex-1 gap-2 items-center space-x-2">
         <Input
           placeholder="חפש תז, שם פרטי, שם משפחה..."
-          value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("title")?.setFilterValue(event.target.value)
+          value={(table.getColumn("id")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>{
+            table.getColumn("id")?.setFilterValue(event.target.value)
+            const filterValue = event.target.value;
+            const filteredColumns = ["id", "firstName", "lastName"];
+          }
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("status") && (
+        {table.getColumn("school") && (
           <DataTableFacetedFilter
-            column={table.getColumn("status")}
-            title="Status"
-            options={statuses}
+            column={table.getColumn("school")}
+            title="בתי ספר"
+            options={schools}
           />
         )}
-        {table.getColumn("priority") && (
+        {table.getColumn("employee") && (
           <DataTableFacetedFilter
-            column={table.getColumn("priority")}
-            title="Priority"
-            options={priorities}
+            column={table.getColumn("employee")}
+            title="מעסיק"
+            options={employees}
+          />
+        )}
+        {table.getColumn("programProfession") && (
+          <DataTableFacetedFilter
+            column={table.getColumn("programProfession")}
+            title="מקצוע בתוכנית"
+            options={programProfessions}
           />
         )}
         {isFiltered && (
@@ -49,7 +59,7 @@ export function DataTableToolbar<TData>({
             onClick={() => table.resetColumnFilters()}
             className="h-8 px-2 lg:px-3"
           >
-            Reset
+            נקה
             <Cross2Icon className="ml-2 h-4 w-4" />
           </Button>
         )}

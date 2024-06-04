@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useFormState } from "react-dom";
-// UI
+
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Label } from "@/components/ui/label";
@@ -42,8 +42,8 @@ export function CreateTeacherForm({ setOpen }: CreateTeacherFormProps) {
   useEffect(() => {
     if (formState.status === "success") {
       toast({
-        title: "Item Added",
-        description: "Your pantry item has been added",
+        title: "נוסף מורה",
+        description: "המורה הוגדר בהצלחה במערכת.",
       });
       formRef.current?.reset();
       setOpen(false)
