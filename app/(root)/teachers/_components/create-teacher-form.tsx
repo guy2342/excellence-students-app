@@ -28,7 +28,7 @@ const initialFormState: CreateTeacherState = {
 };
 
 type CreateTeacherFormProps = {
-  setOpen: (open:boolean) => void;
+  setOpen: (open: boolean) => void;
 };
 export function CreateTeacherForm({ setOpen }: CreateTeacherFormProps) {
   const { toast } = useToast();
@@ -46,7 +46,7 @@ export function CreateTeacherForm({ setOpen }: CreateTeacherFormProps) {
         description: "המורה הוגדר בהצלחה במערכת.",
       });
       formRef.current?.reset();
-      setOpen(false)
+      setOpen(false);
     }
   }, [toast, formState, setOpen]);
 

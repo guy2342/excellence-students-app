@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import { Cross2Icon } from "@radix-ui/react-icons"
-import { Table } from "@tanstack/react-table"
+import { Cross2Icon } from "@radix-ui/react-icons";
+import { Table } from "@tanstack/react-table";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
-import {employees, programProfessions, schools } from "../data/data"
-import { DataTableFacetedFilter } from "./data-table-faceted-filter"
+import { employees, programProfessions, schools } from "../data/data";
+import { DataTableFacetedFilter } from "./data-table-faceted-filter";
+import { isNumeric } from "@/lib/utils";
 
 interface DataTableToolbarProps<TData> {
-  table: Table<TData>
+  table: Table<TData>;
 }
 
 export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
-  const isFiltered = table.getState().columnFilters.length > 0
+  const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
     <div className="flex items-center justify-between">
@@ -24,12 +25,10 @@ export function DataTableToolbar<TData>({
         <Input
           placeholder="חפש תז, שם פרטי, שם משפחה..."
           value={(table.getColumn("id")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>{
-            table.getColumn("id")?.setFilterValue(event.target.value)
+          onChange={(event) => {
             const filterValue = event.target.value;
-            const filteredColumns = ["id", "firstName", "lastName"];
-          }
-          }
+            table.getColumn("id")?.setFilterValue(filterValue);
+          }}
           className="h-8 w-[150px] lg:w-[250px]"
         />
         {table.getColumn("school") && (
@@ -66,5 +65,5 @@ export function DataTableToolbar<TData>({
       </div>
       {/* <DataTableViewOptions table={table} /> */}
     </div>
-  )
+  );
 }
